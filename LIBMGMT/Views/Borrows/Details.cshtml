@@ -1,0 +1,86 @@
+﻿@model LIBMGMT.Models.Borrow
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-image: url('https://media.istockphoto.com/id/1392425149/vector/books-swap-exchange-or-crossing-concept.webp?s=2048x2048&w=is&k=20&c=gWTHC7xsdB2PImqRHFULl5p4MCFirCmCJT9Na7VMMoM=');
+            background-size: cover;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .row {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .col-sm-2 {
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .col-sm-10 {
+            padding-left: 10px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            margin-right: 10px;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Borrow Details</h1>
+
+    <div class="row">
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TakenDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TakenDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BroughtDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BroughtDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Book)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Book.BookId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Student)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Student.StudentId)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.BorrowId" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</body>
+</html>

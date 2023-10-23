@@ -1,0 +1,79 @@
+﻿@model LIBMGMT.Models.Student
+
+@{
+    ViewData["Title"] = "Create Student";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/free-vector/focused-tiny-people-reading-books_74855-5836.jpg?w=996&t=st=1697696306~exp=1697696906~hmac=d26cf139ba36130e799dcd0b32666a553a0044c8d35593f947865fdac510db34');
+            background-size: cover;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #333;
+            margin-top: 20px;
+        }
+
+       
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background-color: #007bff;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    
+        <h1>Create Student</h1>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label">Student Name</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Gender" class="control-label">Gender</label>
+                        <input asp-for="Gender" class="form-control" />
+                        <span asp-validation-for="Gender" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Course" class="control-label">Course</label>
+                        <input asp-for="Course" class="form-control" />
+                        <span asp-validation-for="Course" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Create</button>
+                        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+</body>
+</html>

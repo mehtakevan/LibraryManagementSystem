@@ -1,0 +1,79 @@
+﻿@model LIBMGMT.Models.Book
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1514593214839-ce1849100055?auto=format&fit=crop&q=80&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=1974');
+            background-size: cover;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .row {
+            margin-top: 20px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: #fff;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Book</h1>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="BookId" />
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label">Book Name</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PageCount" class="control-label">Page Count</label>
+                        <input asp-for="PageCount" class="form-control" />
+                        <span asp-validation-for="PageCount" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AuthorId" class="control-label">Author</label>
+                        <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.AuthorId"></select>
+                        <span asp-validation-for="AuthorId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                        <a asp-action="Index" class="btn btn-secondary ml-2">Back to List</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

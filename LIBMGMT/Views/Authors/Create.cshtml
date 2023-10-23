@@ -1,0 +1,70 @@
+﻿@model LIBMGMT.Models.Author
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        body {
+            background-image: url('https://media.istockphoto.com/id/1304953468/vector/black-woman-writes-in-a-notebook-planning-studying-writing-or-reading-concept-flat-style.webp?s=2048x2048&w=is&k=20&c=biX8pj6piDtLr6z9V6rxyy4hPtyHrU8F4A3oqluwvIg=');
+            background-size: cover;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: black;
+            margin-top: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+        }
+
+        .btn-primary, .btn-secondary {
+            width: auto; /* Make the buttons have auto width to fit content */
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Create Author</h1>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="btn-group">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                            <a asp-action="Index" class="btn btn-secondary" style="margin-left: 10px;">Back to List</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

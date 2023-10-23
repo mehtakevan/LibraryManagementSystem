@@ -1,0 +1,86 @@
+﻿@model LIBMGMT.Models.Student
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+        
+            background-image: url('https://img.freepik.com/free-vector/people-reading-books-library_74855-7788.jpg?w=1060&t=st=1697698880~exp=1697699480~hmac=9b95ed56612d776536f185b32134129235fb2c56599443284708ac97c2a2b8e3'); /* Replace 'your-background-image.jpg' with the path to your image */
+            background-size: cover;
+            font-family: Arial, sans-serif;
+       
+        }
+
+        h3 {
+            font-size: 24px;
+            color: #333;
+            margin-top: 20px;
+        }
+
+       
+
+        
+        .row {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .col-sm-2 {
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .col-sm-10 {
+            padding-left: 10px;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: #fff;
+            margin-right: 10px;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div class="container">
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Course)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Course)
+            </dd>
+        </dl>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="StudentId" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </form>
+    </div>
+</body>
+</html>

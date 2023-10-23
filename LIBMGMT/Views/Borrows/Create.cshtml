@@ -1,0 +1,80 @@
+﻿@model LIBMGMT.Models.Borrow
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://media.istockphoto.com/id/1392425149/vector/books-swap-exchange-or-crossing-concept.webp?s=2048x2048&w=is&k=20&c=gWTHC7xsdB2PImqRHFULl5p4MCFirCmCJT9Na7VMMoM=');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-top: 20px;
+        }
+
+
+        .row {
+            margin-top: 20px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: #fff;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Borrow Book</h1>
+    
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="StudentId" class="control-label"></label>
+                        <select asp-for="StudentId" class="form-control" asp-items="ViewBag.StudentId"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BookId" class="control-label"></label>
+                        <select asp-for="BookId" class="form-control" asp-items="ViewBag.BookId"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TakenDate" class="control-label"></label>
+                        <input asp-for="TakenDate" class="form-control" />
+                        <span asp-validation-for="TakenDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BroughtDate" class="control-label"></label>
+                        <input asp-for="BroughtDate" class="form-control" />
+                        <span asp-validation-for="BroughtDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                        <a asp-action="Index" class="btn btn-secondary ml-2">Back to List</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
