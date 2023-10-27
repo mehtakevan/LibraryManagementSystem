@@ -43,14 +43,14 @@ namespace LIBMGMT.Controllers
             {
                 return NotFound();
             }
-
+            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "Name");
             return View(book);
         }
 
         // GET: Books/Create
         public IActionResult Create()
         {
-            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "AuthorId");
+            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "Name");
             return View();
         }
 
@@ -60,14 +60,14 @@ namespace LIBMGMT.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("BookId,Name,PageCount,AuthorId")] Book book)
-        {   // look hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+        {   
             if (!ModelState.IsValid)
             {
                 _context.Add(book);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "AuthorId", book.AuthorId);
+            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "Name");
             return View(book);
         }
 
@@ -84,7 +84,7 @@ namespace LIBMGMT.Controllers
             {
                 return NotFound();
             }
-            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "AuthorId", book.AuthorId);
+            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "Name", book.AuthorId);
             return View(book);
         }
 
@@ -99,7 +99,6 @@ namespace LIBMGMT.Controllers
             {
                 return NotFound();
             }
-            // look hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
             if (!ModelState.IsValid)
             {
                 try

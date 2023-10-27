@@ -110,10 +110,10 @@
                         @Html.DisplayFor(modelItem => item.BroughtDate)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Book.BookId)
+                        @Html.DisplayFor(modelItem => item.Book.Name)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Student.StudentId)
+                        @Html.DisplayFor(modelItem => item.Student.Name)
                     </td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.BorrowId" class="button-link btn-edit">Edit</a>

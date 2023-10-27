@@ -45,7 +45,7 @@
                         @Html.DisplayFor(modelItem => item.PageCount)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Author.AuthorId)
+                        @Html.DisplayFor(modelItem => item.Author.Name)
                     </td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.BookId" class="btn btn-warning">Edit</a>

@@ -44,15 +44,16 @@ namespace LIBMGMT.Controllers
             {
                 return NotFound();
             }
-
+            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Name");
+            ViewData["StudentId"] = new SelectList(_context.Students, "StudentId", "Name");
             return View(borrow);
         }
 
         // GET: Borrows/Create
         public IActionResult Create()
         {
-            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "BookId");
-            ViewData["StudentId"] = new SelectList(_context.Students, "StudentId", "StudentId");
+            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Name");
+            ViewData["StudentId"] = new SelectList(_context.Students, "StudentId", "Name");
             return View();
         }
 
@@ -62,7 +63,8 @@ namespace LIBMGMT.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("BorrowId,StudentId,BookId,TakenDate,BroughtDate")] Borrow borrow)
-        {// look hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+        {
+            
             if (!ModelState.IsValid)
             {
                 _context.Add(borrow);
@@ -87,8 +89,8 @@ namespace LIBMGMT.Controllers
             {
                 return NotFound();
             }
-            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "BookId", borrow.BookId);
-            ViewData["StudentId"] = new SelectList(_context.Students, "StudentId", "StudentId", borrow.StudentId);
+            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Name", borrow.BookId);
+            ViewData["StudentId"] = new SelectList(_context.Students, "StudentId", "Name", borrow.StudentId);
             return View(borrow);
         }
 
@@ -103,7 +105,7 @@ namespace LIBMGMT.Controllers
             {
                 return NotFound();
             }
-            // look hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+            // look hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
             if (!ModelState.IsValid)
             {
                 try
